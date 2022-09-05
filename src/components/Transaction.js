@@ -62,7 +62,7 @@ export default function Transaction() {
         </Col>
         <Col xs={6} md={6}>
           <p style={{fontSize: "15px",
-        color: "#BD0707"}}><strong>{cart?.product?.title}</strong></p>
+        color: "#BD0707"}}><strong>{cart?.product?.name}</strong></p>
       <p style={{fontSize: "13px",
         color: "#BD0707"}}><b>{dateFormat(cart?.updated_at, 'dddd,')}</b>  {dateFormat(cart?.updated_at, 'd mmmm yyyy')} </p>
         <span style={{fontSize: "13px",
