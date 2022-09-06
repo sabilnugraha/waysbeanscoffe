@@ -80,7 +80,7 @@ export default function Cart() {
 
   
   let resultTotal = carts?.reduce((a, b) => {
-    return a + b.subtotal;
+    return a + b.product.price * b.qty
   }, 0);
   console.log(resultTotal)
 
@@ -425,7 +425,7 @@ console.log(carts);
             name="City" 
             placeholder="City"
             value={address.City}
-             onChange={handleChange}
+            onChange={handleChange}
             style={{ borderColor: "brown" }}
             
           />

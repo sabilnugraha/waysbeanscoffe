@@ -18,6 +18,11 @@ function LandingPages() {
   const [user, setUser] = React.useContext(Usercontext);
 
   const [dataproduct, setDataproduct] = useState([]);
+//testing
+  const date = new Date()
+  console.log(date);
+  const now = date.getTime()
+  console.log(now);
 
   useEffect(() => {
     const dataproduct = async () => {
