@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import Logo from "../assets/logo.png";
 import Desain from "../assets/Jumbotron.png";
 import "../landingPages.css";
-import { Container, Col, Row, Card, Navbar, Nav } from "react-bootstrap";
+import { Container, Col, Row, Card, Navbar, Nav, Modal } from "react-bootstrap";
 import AuthModal from "../components/AuthModal";
 import { useNavigate } from "react-router-dom";
 import { Usercontext } from "../context/usercontext";
@@ -12,6 +12,11 @@ import convertRupiah from "rupiah-format";
 
 function LandingPages() {
   const [state, dispatch] = useContext(Usercontext);
+
+  const [showRegister, setShowRegister] = useState(false);
+
+   const handleCloseRegister = () => setShowRegister(false);
+  const handleShowRegister = () => setShowRegister(true);
 
   const navigate = useNavigate();
 
@@ -132,12 +137,18 @@ function LandingPages() {
                     
                   }}
                 >
-                  <Card.Img
+                  {subscribe ? (<Card.Img
                     variant="top"
                     src={item.image}
                     style={{ cursor: "pointer" }}
                     onClick={() => movetoDetail(item?.id)}
-                  />
+                  />) : (<Card.Img
+                    variant="top"
+                    src={item.image}
+                    style={{ cursor: "pointer" }}
+                    onClick={handleShowRegister}
+                  />)}
+                  
 
                   <Card.Body>
                     <Card.Title style={{ color: "#BD0707", fontSize: "100%" }}>
@@ -158,6 +169,14 @@ function LandingPages() {
           
         </Container>
       </div>
+       <Modal show={showRegister} onHide={handleCloseRegister}>
+        <div className="p-2 d-flex justify-content-center">
+        
+            <p>Please login or register !</p>
+        
+          
+        </div>
+      </Modal>
     </div>
   );
 }
