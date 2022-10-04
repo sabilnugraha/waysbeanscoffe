@@ -38,8 +38,8 @@ export default function Transaction() {
 
           return (
             <>
-            <Row className="p-2"  >
-              <div key={index} style={{backgroundColor:"pink"}}>
+            <Row className="p-2 mt-2 cartTrans"  >
+              <div key={index}>
               
               <div className="cartTransaction" key={index} style={{
         padding: "10px"
@@ -71,7 +71,7 @@ export default function Transaction() {
         color: "#BD0707"}}><strong>{cart?.qty}</strong></span>
         
         <p style={{fontSize: "15px",
-        color: "#BD0707"}}>Price : {convertRupiah.convert(cart?.subtotal)}</p><span style={{fontSize: "15px",
+        color: "#BD0707"}}>Price : {convertRupiah.convert(cart?.product?.price)}</p><span style={{fontSize: "15px",
         color: "#BD0707"}}></span>
         </Col>
         
